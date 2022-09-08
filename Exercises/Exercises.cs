@@ -1,4 +1,6 @@
-﻿namespace Exercises
+﻿using Microsoft.VisualBasic;
+
+namespace Exercises
 {
     internal class Exercises
     {
@@ -24,6 +26,9 @@
                             break;
                         case 3:
                             RuneExerciseThree();
+                            break;
+                        case 4:
+                            RunExerciseFour();
                             break;
                         case 9:
                             keepAlive = false;
@@ -70,13 +75,18 @@
         private static void RuneExerciseThree()
         {
             Console.Write("Enter your first name: ");
-            string firstName = Console.ReadLine();
+            string? firstName = Console.ReadLine();
             Console.Write("Enter your last name: ");
-            string lastName = Console.ReadLine();
+            string? lastName = Console.ReadLine();
             Console.WriteLine($"{firstName} {lastName}");
         }
 
 
-        
+        private static void RunExerciseFour()
+        {
+            string str = "The quick fox Jumped Over the DOG";
+            string newStr = str.Replace(str, "The brown fox jumped over the lazy dog");
+            Console.WriteLine(newStr);
+        }
     }
 }
