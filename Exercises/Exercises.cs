@@ -71,6 +71,9 @@ namespace Exercises
                         case 18:
                             RunExerciseEighteen();
                             break;
+                        case 19:
+                            RunExerciseNineteen();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -430,7 +433,8 @@ namespace Exercises
         private static void RunExerciseNineteen()
         {
             int[] moneyDenominations = { 1000, 500, 100, 50, 20, 10, 5, 1 };
-            int amountToPay = 500;
+            int amountToPay = 376;
+            
             
             
             Console.WriteLine($"Money to pay: {amountToPay}");
@@ -439,14 +443,25 @@ namespace Exercises
 
 
             int change = givenMoney - amountToPay;
-            for (int i = 0; i <= moneyDenominations.Length; i++)
+            Console.WriteLine("Coins distribution:");
+            Console.WriteLine($"Calculated change: {change}");
+
+            for (int i = 0; i <= moneyDenominations.Length - 1; i++)
             {
                 if (change >= moneyDenominations[i])
                 {
-                    Console.WriteLine(moneyDenominations[i]);
-                }
+                    Console.WriteLine($"{moneyDenominations[i]} coins: {change / moneyDenominations[i]}");
+                    change -= (change / moneyDenominations[i]) * moneyDenominations[i];
+                } else
+                {
+                    Console.WriteLine($"{moneyDenominations[i]} coins: {change / moneyDenominations[i]}");
+                } 
             }
+        }
 
+
+        private static void RunExerciseTwenty()
+        {
 
         }
     } // End of namespace
